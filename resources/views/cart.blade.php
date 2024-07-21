@@ -133,11 +133,7 @@
 
 <div class="container">
 
-
-
-
-
-        @foreach($carts as $cart)
+      @foreach($carts as $cart)
 
             <div class="product">
             <h2> Product: {{$cart->product}} </h2>
@@ -146,15 +142,15 @@
                 @csrf
                    @method('DELETE')
                  <button onclick="return confirmDelete();">Delete Order</button>
-                 <input type="hidden" name="confirm" id="confirm" value="false">
+                 <input type="hidden" name="confirmed" id="confirmed" value="false">
               </form>
               <script>
                   function confirmDelete(){
-                      var confirm = confirm("Are you sure you want to delete this order?");
-                      if (confirm){
-                          document.getElementById('confirm').value = 'true';
+                      var confirmed = confirm("Are you sure you want to delete this order?");
+                      if (confirmed){
+                          document.getElementById('confirmed').value = 'true';
                       }
-                      return confirm;
+                      return confirmed;
                   }
               </script>
 
@@ -164,19 +160,18 @@
                  </script>
               @endif
             </div>
-        @endforeach
-
+    @endforeach
 </div>
 
 
   <form action="{{ route('cart.checkout') }}" method="POST">
     @csrf
        @method('DELETE')
-     <button onclick="return confirmDelete();" class="checkout">Checkout</button>
+     <button onclick="return confirmedDelete();" class="checkout">Checkout</button>
      <input type="hidden" name="confirmed" id="confirmed" value="false">
   </form>
   <script>
-      function confirmDelete(){
+      function confirmedDelete(){
           var confirmed = confirm("Checkout all orders?");
           if (confirmed){
               document.getElementById('confirmed').value = 'true';
@@ -189,7 +184,7 @@
      <script>
          alert("{{ session('confirm_message') }}")
      </script>
-@endif
+  @endif
 @endif
 </center>
 

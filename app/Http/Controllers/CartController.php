@@ -93,7 +93,7 @@ class CartController extends Controller
         $cart = Cart::findOrFail($id);
 
 
-        if ($request->has('confirm') && $request->confirm == true ) {
+        if ($request->has('confirmed') && $request->confirmed == true ) {
            $cart->delete();
            return redirect('/cart');
         }else{
