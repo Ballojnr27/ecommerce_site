@@ -30,10 +30,12 @@ Route::get('/sandals', [App\Http\Controllers\FootwearController::class, 'sandals
 //Route::resource('cart', CartController::class);
 Route::get('/cart', [App\Http\Controllers\CartController::class, 'index'])->name('cart')->middleware('auth');
 Route::delete('/cart/{id}', [App\Http\Controllers\CartController::class, 'destroy'])->name('cart.destroy')->middleware('auth');
+Route::delete('/cart/search/{id}', [App\Http\Controllers\CartController::class, 'destroy_search'])->name('search.destroy')->middleware('auth');
 Route::delete('/cart', [App\Http\Controllers\CartController::class, 'checkout'])->name('cart.checkout')->middleware('auth');
 Route::get('/create', [App\Http\Controllers\CartController::class, 'create'])->name('create')->middleware('auth');
 Route::post('/store', [App\Http\Controllers\CartController::class, 'store'])->name('store')->middleware('auth');
 Route::get('/cart', [App\Http\Controllers\CartController::class, 'show'])->name('show')->middleware('auth');
+Route::get('/cart/search', [App\Http\Controllers\CartController::class, 'search'])->name('search')->middleware('auth');
 Route::get('/password/forget', [App\Http\Controllers\ForgetPassController::class, 'showResetForm'])->name('password.show');
 Route::post('/password/new', [App\Http\Controllers\ForgetPassController::class, 'resetPassword'])->name('password.new');
 Route::get('/password/create_new', [App\Http\Controllers\ForgetPassController::class, 'showNewPass'])->name('password.new.show');

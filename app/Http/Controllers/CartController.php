@@ -51,9 +51,13 @@ class CartController extends Controller
 
       $carts = Cart::where('user_id', $user->id)->orderBy('created_at', 'desc')->get();
 
+      $sum  = Cart::where('user_id', $user->id)->sum('price');
+
+
+
       return view('cart', [
         'carts' => $carts
-      ]);
+      ], compact('sum'));
 
 
     }
@@ -63,6 +67,7 @@ class CartController extends Controller
        $user = Auth::user();
 
       $checkout = Cart::where('user_id', $user->id);
+
 
 
         if ($request->has('confirmed') && $request->confirmed == true ) {
@@ -76,10 +81,13 @@ class CartController extends Controller
     }
 
 
-    public function edit(CartController $cartController)
+   /* public function price_sum()
     {
-        //
-    }
+        $sum  = Cart::sum('price');
+
+        return view('cart', compact('sum'));
+
+    }*/
 
 
     public function update(Request $request, CartController $cartController)
@@ -87,6 +95,13 @@ class CartController extends Controller
         //
     }
 
+    public function search(Request $request){
+        $query = request('search');
+        $orders = Cart::where('product', 'LIKE', "%{$query}%")->get();
+        return view('order_search', [
+            'orders' => $orders
+          ]);
+    }
 
     public function destroy(Request $request, $id){
 
@@ -102,6 +117,22 @@ class CartController extends Controller
 
 
      }
+
+     public function destroy_search(Request $request, $id){
+
+        $order = Cart::findOrFail($id);
+
+
+        if ($request->has('confirmed') && $request->confirmed == true ) {
+           $order->delete();
+           return redirect('/cart');
+        }else{
+              return redirect()->back()->with('confirm_message', 'Please confirm the deletion');
+        }
+
+
+     }
+
 
 }
 

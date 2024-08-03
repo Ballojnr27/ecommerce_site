@@ -34,7 +34,7 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
-            
+
         }
         .product {
             border: 1px solid #ccc;
@@ -87,16 +87,16 @@
 
 <header>
     <div class="logo"><span class="highlight">De'light </span>Footwears</div>
-    
+
     <div>
-        
+
         <a href="/home" class="home">Home</a>
         <a href="/cart" class="cart-logo">🛒 Cart</a>
     </div>
 </header>
 <h1>Female Shoes Category</h1>
 <center>
-    
+
 @php
 $products = [
     [
@@ -120,6 +120,9 @@ $products = [
 ];
 @endphp
 
+
+
+
 @foreach($products as $product)
       <form action="{{route('store')}}" method="POST" >
             @csrf
@@ -127,20 +130,20 @@ $products = [
             <div class="container">
     <div class="product">
 
-           
+
             <img src="assets/images/img/{{$product['image'] }}" alt="Product 1">
     <h2>{{ $product['name'] }}</h2>
     <p>Price: {{ $product['price'] }}</p>
     <p>Description: {{ $product['description'] }}</p>
-      
+
 
         <input type="hidden" name="product" placeholder="Product" value="{{$product['name']}}">
         <input type="hidden" name="price" placeholder="Price" value="{{$product['price']}}">
         <button type="submit">Add To Cart</button>
         </div>
-</div>     
+</div>
        </form>
-   
+
 @endforeach
 
 </center>

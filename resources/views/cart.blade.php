@@ -100,6 +100,14 @@
             width: 300px;
             height: 100px;
         }
+        .search{
+            margin-left: 1050px;
+            align-items: center;
+
+        }
+        .search_box{
+            size: 100px;
+        }
 
     </style>
 </head>
@@ -122,14 +130,19 @@
     </div>
 </header>
 <h1>Shopping Cart</h1>
+<form action="{{ route('search') }}" method="GET" class="search">
+    <input type="text" name="search" placeholder="Enter name of order" class="search_box">
+    <button type="submit">Search</button>
+</form>
 <center>
+
+
+
     @if($carts->isEmpty())
 
-    <p style="font-size: 30px"><b>You Cart Is Empty.</p></b>
+<p style="font-size: 30px"><b>You Cart Is Empty.</p></b>
 
-
-
-    @else
+@else
 
 <div class="container">
 
@@ -172,7 +185,7 @@
   </form>
   <script>
       function confirmedDelete(){
-          var confirmed = confirm("Checkout all orders?");
+          var confirmed = confirm("Total order is {{ $sum }} Naira. Checkout?");
           if (confirmed){
               document.getElementById('confirmed').value = 'true';
           }
@@ -186,6 +199,9 @@
      </script>
   @endif
 @endif
+
+
+
 </center>
 
 </body><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>

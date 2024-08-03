@@ -102,31 +102,31 @@
 $products = [
     [
         'name' => 'Black office Shoe',
-        'price' => '150,000',
+        'price' => 150000,
         'description' => 'Nice, shining black shoe that can be worn on corporate wears to offices, meetings, etc.',
         'image' => 'mshoe1.jpg'
     ],
     [
         'name' => 'Leather Shoe',
-        'price' => '120,000',
+        'price' => 120000,
         'description' => 'Leather shoe with long lasting material which is available in different colors.',
         'image' => 'mshoe2.jpg'
     ],
     [
         'name' => 'Stoned Shining shoe.',
-        'price' => '200,000',
+        'price' => 200000,
         'description' => 'Stoned shining shoe, most suitable for parties, dates, etc. ',
         'image' => 'mshoe3.jpg'
     ],
     [
         'name' => 'Appenda Shoe',
-        'price' => '160,000',
+        'price' => 160000,
         'description' => 'Appenda shiny shoe suitable for official purposes.',
         'image' => 'mshoe4.jpg'
     ],
     [
         'name' => 'Lappenda shoe',
-        'price' => '200,000',
+        'price' => 200000,
         'description' => 'Lappenda shoe suitable for offices, hangouts, dates, etc.',
         'image' => 'mshoe5.jpg'
     ]
