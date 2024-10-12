@@ -133,7 +133,7 @@ $products = [
 
             <img src="assets/images/img/{{$product['image'] }}" alt="Product 1">
     <h2>{{ $product['name'] }}</h2>
-    <p>Price: {{ $product['price'] }}</p>
+    <p>Price (NGN): {{ $product['price'] }}</p>
     <p>Description: {{ $product['description'] }}</p>
 
 

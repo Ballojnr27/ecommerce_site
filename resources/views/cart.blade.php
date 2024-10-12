@@ -131,7 +131,7 @@
 </header>
 <h1>Shopping Cart</h1>
 <form action="{{ route('search') }}" method="GET" class="search">
-    <input type="text" name="search" placeholder="Enter name of order" class="search_box">
+    <input type="text" name="search" placeholder="Enter name of product" class="search_box">
     <button type="submit">Search</button>
 </form>
 <center>
@@ -150,7 +150,7 @@
 
             <div class="product">
             <h2> Product: {{$cart->product}} </h2>
-            <p>Price(Naira): {{$cart->price}} </p>
+            <p>Price(NGN): {{$cart->price}} </p>
             <form action="{{ route('cart.destroy', $cart->id) }}" method="POST">
                 @csrf
                    @method('DELETE')
@@ -185,7 +185,7 @@
   </form>
   <script>
       function confirmedDelete(){
-          var confirmed = confirm("Total order is {{ $sum }} Naira. Checkout?");
+          var confirmed = confirm("Total order is {{ $sum }} NGN. Checkout?");
           if (confirmed){
               document.getElementById('confirmed').value = 'true';
           }

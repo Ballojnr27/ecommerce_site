@@ -22,6 +22,8 @@ Route::get('/', function () {
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
+Route::get('/edit', [App\Http\Controllers\HomeController::class, 'edit'])->name('edit')->middleware('auth');
+Route::put('/edit/update', [App\Http\Controllers\HomeController::class, 'edit_profile'])->name('edit_profile')->middleware('auth');
 Route::get('/maleshoes', [App\Http\Controllers\FootwearController::class, 'maleshoes'])->name('maleshoes')->middleware('auth');
 Route::get('/femaleshoes', [App\Http\Controllers\FootwearController::class, 'femaleshoes'])->name('femaleshoes')->middleware('auth');
 Route::get('/slides', [App\Http\Controllers\FootwearController::class, 'slides'])->name('slides')->middleware('auth');
@@ -40,6 +42,5 @@ Route::get('/password/forget', [App\Http\Controllers\ForgetPassController::class
 Route::post('/password/new', [App\Http\Controllers\ForgetPassController::class, 'resetPassword'])->name('password.new');
 Route::get('/password/create_new', [App\Http\Controllers\ForgetPassController::class, 'showNewPass'])->name('password.new.show');
 Route::post('/password/createPass', [App\Http\Controllers\ForgetPassController::class, 'createNewPass'])->name('password.new.create');
-
 
 Auth::routes();

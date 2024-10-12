@@ -21,7 +21,7 @@
         .logo {
             font-size: 24px;
         }
-        .cart-logo, .logout-link {
+        .cart-logo, .logout-link, .edit {
             font-size: 18px;
             color: #fff;
             text-decoration: none;
@@ -90,6 +90,7 @@
 
     <div>
         <a href="/cart" class="cart-logo">🛒 Cart</a>
+        <a href="/edit" class="edit">Edit Profile</a>
         <a class="logout-link" href="{{ route('logout') }}"
           onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">

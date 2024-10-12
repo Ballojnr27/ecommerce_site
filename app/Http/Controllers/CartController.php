@@ -81,13 +81,7 @@ class CartController extends Controller
     }
 
 
-   /* public function price_sum()
-    {
-        $sum  = Cart::sum('price');
-
-        return view('cart', compact('sum'));
-
-    }*/
+   
 
 
     public function update(Request $request, CartController $cartController)
