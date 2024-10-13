@@ -143,8 +143,8 @@ $products = [
 
             <img src="assets/images/img/{{$product['image'] }}" alt="Product 1">
     <h2>{{ $product['name'] }}</h2>
-    <p>Price (NGN): <b>{{ $product['price'] }}</b></p>
-    <p>Description: <b>{{ $product['description'] }}</b></p>
+    <p>Price (NGN): {{ $product['price'] }}</p>
+    <p>Description: {{ $product['description'] }}</p>
 
 
         <input type="hidden" name="product" placeholder="Product" value="{{$product['name']}}">

@@ -100,22 +100,34 @@
 @php
 $products = [
     [
-        'name' => 'Product 1',
-        'price' => 19.99,
-        'description' => 'This is product 1',
-        'image' => 'palm1.jpg'
+        'name' => 'Red High Heel Shoe',
+        'price' => 150000,
+        'description' => 'High heel suitable for parties, events and may be worn for official purposes.',
+        'image' => 'fshoe1.jpg'
     ],
     [
-        'name' => 'Product 2',
-        'price' => 9.99,
-        'description' => 'This is product 2',
-        'image' => 'babyshoe.jpg'
+        'name' => 'Grey Low Heel Shoe',
+        'price' => 120000,
+        'description' => 'Low soled heel most suitable for ceremonies, nice on native dresses as well.',
+        'image' => 'fshoe2.jpg'
     ],
     [
-        'name' => 'Product 3',
-        'price' => 29.99,
-        'description' => 'This is product 3',
-        'image' => 'shoe1.jpg'
+        'name' => 'Baby Shoe',
+        'price' => 200000,
+        'description' => 'Nice baby shoe, most suitable for official purposes.',
+        'image' => 'fshoe3.jpg'
+    ],
+    [
+        'name' => 'Covered Low Heel Shoe',
+        'price' => 160000,
+        'description' => 'Covered low heel show suitable for official purposes.',
+        'image' => 'fshoe4.jpg'
+    ],
+    [
+        'name' => 'Birken Stock Shoe',
+        'price' => 200000,
+        'description' => 'Beautiful portable shoe suitable for official purposes and casual wear.',
+        'image' => 'fshoe5.jpg'
     ]
 ];
 @endphp
