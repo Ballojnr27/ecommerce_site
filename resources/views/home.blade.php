@@ -120,14 +120,14 @@
     </div>
     <div class="product">
         <img src="assets/images/img/palm1.jpg" alt="Product 2">
-        <h2>Slide and Palm Category</h2>
-        <p>Nicely made hand crafted slides for you.</p>
+        <h2>Casual Wears Category</h2>
+        <p>Nicely made hand casual wears for you.</p>
         <a href="/slides"><button>View Category</button></a>
     </div>
     <div class="product">
         <img src="assets/images/img/sandal.jpg" alt="Product 2">
         <h2>Sandal Category </h2>
-        <p>Sandals for many eevnts.</p>
+        <p>Sandals for schools and offices.</p>
         <a href="/sandals"><button>View Category</button></a>
     </div>
 </div>

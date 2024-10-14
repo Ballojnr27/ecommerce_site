@@ -98,7 +98,7 @@
 <center>
 
 @php
-$products = [
+$products = 
     [
         [
         'name' => 'Black office Sandal',

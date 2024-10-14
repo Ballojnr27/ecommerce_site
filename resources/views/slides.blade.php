@@ -94,28 +94,40 @@
         <a href="/cart" class="cart-logo">🛒 Cart</a>
     </div>
 </header>
-<h1>Slides Category</h1>
+<h1>Casual Wears Category</h1>
 <center>
 
 @php
 $products = [
     [
-        'name' => 'Product 1',
-        'price' => 19.99,
-        'description' => 'This is product 1',
-        'image' => 'palm1.jpg'
+        'name' => 'Home Wear',
+        'price' => 5000,
+        'description' => 'Nice, shining black and white slide, suitable for wearing inside homes.',
+        'image' => 'slide1.jpg'
     ],
     [
-        'name' => 'Product 2',
-        'price' => 9.99,
-        'description' => 'This is product 2',
-        'image' => 'babyshoe.jpg'
+        'name' => 'Brown Leathered Slide',
+        'price' => 12000,
+        'description' => 'Strong, leathered slide to be worn casually.',
+        'image' => 'slide2.jpg'
     ],
     [
-        'name' => 'Product 3',
-        'price' => 29.99,
-        'description' => 'This is product 3',
-        'image' => 'shoe1.jpg'
+        'name' => 'Soft Sole Slide.',
+        'price' => 4000,
+        'description' => 'Soft slide to be worn casually and inside homes.',
+        'image' => 'slide3.jpg'
+    ],
+    [
+        'name' => 'Rubber Slide',
+        'price' => 4000,
+        'description' => 'Colored, rubber slide to be worn casually.',
+        'image' => 'slide4.jpg'
+    ],
+    [
+        'name' => 'Black Sole Leathered Slide',
+        'price' => 10000,
+        'description' => 'Strong, leathered slide to be worn casually.',
+        'image' => 'slide5.jpg'
     ]
 ];
 @endphp
