@@ -100,22 +100,35 @@
 @php
 $products = [
     [
-        'name' => 'Product 1',
-        'price' => 19.99,
-        'description' => 'This is product 1',
-        'image' => 'palm1.jpg'
+        [
+        'name' => 'Black office Sandal',
+        'price' => 15000,
+        'description' => 'Nice, shining black sandal that can be worn on corporate wears to offices, meetings, etc.',
+        'image' => 'sandal1.jpg'
     ],
     [
-        'name' => 'Product 2',
-        'price' => 9.99,
-        'description' => 'This is product 2',
-        'image' => 'babyshoe.jpg'
+        'name' => 'One Sided Leather Sandal',
+        'price' => 12000,
+        'description' => 'Nice multicolored sandal that can be used for school or office purpose.',
+        'image' => 'sandal2.jpg'
     ],
     [
-        'name' => 'Product 3',
-        'price' => 29.99,
-        'description' => 'This is product 3',
-        'image' => 'shoe1.jpg'
+        'name' => 'High Sole Sandal.',
+        'price' => 20000,
+        'description' => 'High soled sandal, mostly suitable for females ',
+        'image' => 'sandal3.jpg'
+    ],
+    [
+        'name' => 'Appenda Sandal',
+        'price' => 16000,
+        'description' => 'White Appenda Sandal for casual wear.',
+        'image' => 'sandal4.jpg'
+    ],
+    [
+        'name' => 'Brown Adult Sandal',
+        'price' => 20000,
+        'description' => 'Brown covered sandal, mostly for adults.',
+        'image' => 'sandal5.jpg'
     ]
 ];
 @endphp
