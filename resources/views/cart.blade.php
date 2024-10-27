@@ -108,6 +108,33 @@
         .search_box{
             size: 100px;
         }
+        @media (max-width: 768px) {
+            .cart-logo, .home, .logout-link {
+            font-size: 11px;
+            color: #fff;
+            text-decoration: none;
+            margin-left: 11px;
+        }
+        .logo {
+            font-size: 19px;
+        }
+        .welcome{
+            font-size: 25px;
+            margin-left: 25px;
+        }
+        .product{
+
+            margin-left: 75px;
+        }
+        .search{
+            margin-left: 83px;
+            align-items: center;
+
+        }
+        .search_box{
+            size: 100px;
+        }
+    }
 
     </style>
 </head>
@@ -129,7 +156,7 @@
         </form>
     </div>
 </header>
-<h1>Shopping Cart</h1>
+<h1 class="welcome">Shopping Cart</h1>
 <form action="{{ route('search') }}" method="GET" class="search">
     <input type="text" name="search" placeholder="Enter name of product" class="search_box">
     <button type="submit">Search</button>

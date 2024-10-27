@@ -81,6 +81,27 @@
         h1{
           margin-left:70px;
         }
+
+        @media (max-width: 768px) {
+            .cart-logo, .home {
+            font-size: 11px;
+            color: #fff;
+            text-decoration: none;
+            margin-left: 11px;
+        }
+        .logo {
+            font-size: 19px;
+        }
+        .welcome{
+            font-size: 25px;
+            margin-left: 25px;
+
+        }
+        .product{
+
+            margin-left: 75px;
+        }
+    }
     </style>
 </head>
 <body>
@@ -94,11 +115,11 @@
         <a href="/cart" class="cart-logo">🛒 Cart</a>
     </div>
 </header>
-<h1>Sandals Category</h1>
+<h1 class="welcome">Sandals Category</h1>
 <center>
 
 @php
-$products = 
+$products =
     [
         [
         'name' => 'Black office Sandal',

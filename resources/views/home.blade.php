@@ -79,8 +79,27 @@
             font-family: Arial, sans-serif;
         }
         h1{
-          margin-left:70px;
+          
+          margin-left: 25px;
         }
+        @media (max-width: 768px) {
+            .cart-logo, .logout-link, .edit {
+            font-size: 9px;
+            color: #fff;
+            text-decoration: none;
+            margin-left: 11px;
+        }
+        .logo {
+            font-size: 17px;
+        }
+        .welcome{
+            font-size: 19px;
+
+        }
+
+
+        }
+
     </style>
 </head>
 <body>
@@ -88,7 +107,7 @@
 <header>
     <div class="logo"><span class="highlight">De'light </span>Footwears</div>
 
-    <div>
+    <div class="sidebar" id="sidebar">
         <a href="/cart" class="cart-logo">🛒 Cart</a>
         <a href="/edit" class="edit">Edit Profile</a>
         <a class="logout-link" href="{{ route('logout') }}"
@@ -102,7 +121,9 @@
         </form>
     </div>
 </header>
-<h1>Welcome, {{$user->name}}</h1>
+
+
+<h1 class="welcome">Welcome, {{$user->name}}</h1>
 <center>
 <div class="container">
 
@@ -119,9 +140,9 @@
         <a href="/femaleshoes"><button>View Category</button></a>
     </div>
     <div class="product">
-        <img src="assets/images/img/palm1.jpg" alt="Product 2">
+        <img src="assets/images/img/slide1.jpg" alt="Product 2">
         <h2>Casual Wears Category</h2>
-        <p>Nicely made hand casual wears for you.</p>
+        <p>Nicely made hand slides for you.</p>
         <a href="/slides"><button>View Category</button></a>
     </div>
     <div class="product">
@@ -132,6 +153,15 @@
     </div>
 </div>
 </center>
+
+<script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('show');
+    }
+  </script>
+
+
 </body>
 <footer>
 <b>De'light Footwears &copy; 2024</b>
