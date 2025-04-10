@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Auth\LoginController;
 
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Redirect;
+use Paystack;
+
+
 
 
 class CartController extends Controller
@@ -71,17 +77,21 @@ class CartController extends Controller
 
 
         if ($request->has('confirmed') && $request->confirmed == true ) {
-            $checkout->delete();
-            return redirect('/cart');
+
+          return redirect('/checkout');
+
+
+
+
          }else{
-               return redirect()->back()->with('confirm_message', 'Please confirm the deletion');
+               return redirect()->back()->with('confirm_message', 'Please confirm the checkout');
          }
 
 
     }
 
 
-   
+
 
 
     public function update(Request $request, CartController $cartController)

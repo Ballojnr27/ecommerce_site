@@ -43,4 +43,9 @@ Route::post('/password/new', [App\Http\Controllers\ForgetPassController::class, 
 Route::get('/password/create_new', [App\Http\Controllers\ForgetPassController::class, 'showNewPass'])->name('password.new.show');
 Route::post('/password/createPass', [App\Http\Controllers\ForgetPassController::class, 'createNewPass'])->name('password.new.create');
 
+Route::get('/checkout', [App\Http\Controllers\CheckoutController::class, 'CheckoutForm'])->name('checkout');
+Route::get('/checkout', [App\Http\Controllers\CheckoutController::class, 'showcheckout'])->name('showcheckout');
+
+
+
 Auth::routes();

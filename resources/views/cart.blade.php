@@ -215,8 +215,9 @@
           var confirmed = confirm("Total order is {{ $sum }} NGN. Checkout?");
           if (confirmed){
               document.getElementById('confirmed').value = 'true';
+
           }
-          return confirmed;
+        return confirmed;
       }
   </script>
 
