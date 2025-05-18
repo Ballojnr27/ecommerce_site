@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-commerce Website</title>
+    <title>Admin</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -79,7 +79,7 @@
             font-family: Arial, sans-serif;
         }
         h1{
-          
+
           margin-left: 25px;
         }
         @media (max-width: 768px) {
@@ -131,13 +131,13 @@
         <img src="assets/images/img/mshoe1.jpg" alt="Product 1">
         <h2>Male Shoe Category</h2>
         <p>Nice male shoes for classy people.</p>
-        <a href="/maleshoes"><button>View Category</button></a>
+        <a href="/male-shoes"><button>View Category</button></a>
     </div>
     <div class="product">
         <img src="assets/images/img/babyshoe.jpg" alt="Product 2">
         <h2>Female Shoe Category</h2>
         <p>Beautiful female shoes for parties and events.</p>
-        <a href="/femaleshoes"><button>View Category</button></a>
+        <a href="/female-shoes"><button>View Category</button></a>
     </div>
     <div class="product">
         <img src="assets/images/img/slide1.jpg" alt="Product 2">

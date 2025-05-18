@@ -118,61 +118,23 @@
 <h1 class="welcome">Casual Wears Category</h1>
 <center>
 
-@php
-$products = [
-    [
-        'name' => 'Home Wear',
-        'price' => 5000,
-        'description' => 'Nice, shining black and white slide, suitable for wearing inside homes.',
-        'image' => 'slide1.jpg'
-    ],
-    [
-        'name' => 'Brown Leathered Slide',
-        'price' => 12000,
-        'description' => 'Strong, leathered slide to be worn casually.',
-        'image' => 'slide2.jpg'
-    ],
-    [
-        'name' => 'Soft Sole Slide.',
-        'price' => 4000,
-        'description' => 'Soft slide to be worn casually and inside homes.',
-        'image' => 'slide3.jpg'
-    ],
-    [
-        'name' => 'Rubber Slide',
-        'price' => 4000,
-        'description' => 'Colored, rubber slide to be worn casually.',
-        'image' => 'slide4.jpg'
-    ],
-    [
-        'name' => 'Black Sole Leathered Slide',
-        'price' => 10000,
-        'description' => 'Strong, leathered slide to be worn casually.',
-        'image' => 'slide5.jpg'
-    ]
-];
-@endphp
 
-@foreach($products as $product)
-      <form action="{{route('store')}}" method="POST" >
+@foreach($footwears as $footwear)
+    <form action="{{route('store')}}" method="POST" >
             @csrf
 
-            <div class="container">
-    <div class="product">
-
-
-            <img src="assets/images/img/{{$product['image'] }}" alt="Product 1">
-    <h2>{{ $product['name'] }}</h2>
-    <p>Price: {{ $product['price'] }}</p>
-    <p>Description: {{ $product['description'] }}</p>
-
-
-        <input type="hidden" name="product" placeholder="Product" value="{{$product['name']}}">
-        <input type="hidden" name="price" placeholder="Price" value="{{$product['price']}}">
-        <button type="submit">Add To Cart</button>
+        <div class="container">
+            <div class="product">
+               <img src="footwears/{{$footwear->image }}" alt="{{ $footwear->name }}">
+               <h2>{{ $footwear->name }}</h2>
+               <p>Price (NGN): {{ $footwear->price }}</p>
+               <p>Description: {{ $footwear->description }}</p>
+               <input type="hidden" name="product" placeholder="Product" value="{{$footwear->name}}">
+               <input type="hidden" name="price" placeholder="Price" value="{{$footwear->price}}">
+               <button type="submit">Add To Cart</button>
+            </div>
         </div>
-</div>
-       </form>
+    </form>
 
 @endforeach
 

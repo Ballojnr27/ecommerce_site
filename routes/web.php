@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Admin\AdminLoginController;
+use App\Http\Controllers\Admin\FootwearsController;
+
 
 
 
@@ -24,8 +28,8 @@ Route::get('/', function () {
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
 Route::get('/edit', [App\Http\Controllers\HomeController::class, 'edit'])->name('edit')->middleware('auth');
 Route::put('/edit/update', [App\Http\Controllers\HomeController::class, 'edit_profile'])->name('edit_profile')->middleware('auth');
-Route::get('/maleshoes', [App\Http\Controllers\FootwearController::class, 'maleshoes'])->name('maleshoes')->middleware('auth');
-Route::get('/femaleshoes', [App\Http\Controllers\FootwearController::class, 'femaleshoes'])->name('femaleshoes')->middleware('auth');
+Route::get('/male-shoes', [App\Http\Controllers\FootwearController::class, 'maleshoes'])->name('maleshoes')->middleware('auth');
+Route::get('/female-shoes', [App\Http\Controllers\FootwearController::class, 'femaleshoes'])->name('femaleshoes')->middleware('auth');
 Route::get('/slides', [App\Http\Controllers\FootwearController::class, 'slides'])->name('slides')->middleware('auth');
 Route::get('/sandals', [App\Http\Controllers\FootwearController::class, 'sandals'])->name('sandals')->middleware('auth');
 
@@ -47,5 +51,18 @@ Route::get('/checkout', [App\Http\Controllers\CheckoutController::class, 'Checko
 Route::get('/checkout', [App\Http\Controllers\CheckoutController::class, 'showcheckout'])->name('showcheckout');
 
 
-
 Auth::routes();
+
+
+
+Route::get('/admin/login', [AdminLoginController::class, 'showLoginForm'])->name('admin.login');
+Route::post('/admin/login', [AdminLoginController::class, 'login'])->name('admin.login.submit');
+
+Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
+    Route::get('footwears', [FootwearsController::class, 'index'])->name('footwears.index');
+    Route::get('orders', [FootwearsController::class, 'orders'])->name('footwears.orders');
+    Route::post('footwears', [FootwearsController::class, 'store'])->name('footwears.store');
+    Route::put('footwears/{id}', [FootwearsController::class, 'update'])->name('footwears.update');
+    Route::delete('footwears/{id}', [FootwearsController::class, 'destroy'])->name('footwears.destroy');
+    Route::delete('orders/{id}', [FootwearsController::class, 'completeOrder'])->name('order.complete');
+});

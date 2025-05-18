@@ -58,7 +58,8 @@ class HomeController extends Controller
             ]);
             $user->password = bcrypt($request->password);
         }
-        $user->save();
+
+        $user ->save();
 
 
 
