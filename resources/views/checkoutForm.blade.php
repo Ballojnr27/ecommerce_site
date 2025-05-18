@@ -136,7 +136,10 @@ h1 {
 <input type="number" id="amount" name="amount" value="{{ $sum }}" readonly><br><br>
 
             <!-- Submit Button -->
-            <button type="submit" onclick="payWithPaystack()"> Pay </button>
+            <button type="submit" onclick="payWithPaystack()"> Pay </button><br><br>
+
+            <p>NB: Your order will be dispatched once the payment is successful.</p>
+
         </form>
   </div>
 </body>
@@ -157,9 +160,10 @@ function payWithPaystack(e) {
     onClose: function(){
       alert('Window closed.');
     },
-    callback: function(response){
-      let message = 'Payment complete! Reference: ' + response.reference;
-      alert(message);
+    callback: function(response) {
+    window.location = "/verify-payment?reference=" + response.reference;
+      //alert(message);
+
     }
   });
 
@@ -170,8 +174,12 @@ function payWithPaystack(e) {
   </script>
 
 <script>
-    callback: function(response) {
-    window.location = "http://www.yoururl.com/verify_transaction.php?reference=" + response.reference;
-  };
+
+  callback: function(response) {
+    window.location = "/verify-payment?reference=" + response.reference;
+}
+
 
 </script>
+
+

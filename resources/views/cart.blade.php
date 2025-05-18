@@ -26,7 +26,7 @@
         .logo {
             font-size: 24px;
         }
-        .home, .logout-link {
+        .home, .logout-link, .history {
             font-size: 18px;
             color: #fff;
             text-decoration: none;
@@ -145,6 +145,7 @@
 
     <div>
         <a href="/home" class="home">Home</a>
+        <a href="/order_history" class="history">Order History</a>
         <a class="logout-link" href="{{ route('logout') }}"
           onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">

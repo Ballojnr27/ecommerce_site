@@ -88,46 +88,7 @@
         background-color: #35424b;
         color: white;
     }
-    td button {
-        background-color: #e8491d;
-        color: white;
-        border: none;
-        padding: 5px 10px;
-        margin-right: 5px;
-        border-radius: 3px;
-        cursor: pointer;
-    }
-    td button:hover {
-        background-color: #35424b;
-    }
-    .modal {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        z-index: 9999;
-    }
-    .modal-content {
-        background-color: white;
-        margin: 5% auto;
-        padding: 20px;
-        width: 60%;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0,0,0,0.2);
-        position: relative;
-    }
-    .modal-content form input,
-    .modal-content form select,
-    .modal-content form textarea {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 15px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-    }
+    
 
     </style>
 </head>
@@ -137,49 +98,35 @@
     <div class="logo"><span class="highlight">De'light </span>Footwears</div>
 
     <div class="sidebar" id="sidebar">
-        <a href="/admin/footwears" class="footwears">Footwears</a>
+        
 
     </div>
 </header>
 
 <div class="container">
-    <h2>Orders</h2>
+    <h2>Order History</h2>
     <table>
         <thead>
             <tr>
-                <th>Order ID</th>
-                <th>Customer ID</th>
-                <th>Product</th>
+                <th>Date</th>
+                <th>Product(s)</th>
                 <th>Amount</th>
                 <th>Payment Reference</th>
                 <th>Payment Status</th>
                 <th>Dispatch Status</th>
-                <th>Action</th>
+                
             </tr>
         </thead>
         <tbody>
             @foreach ($orders as $order)
                 <tr>
-                    <td>{{ $order->id }}</td>
-                    <td>{{ $order->user_id }}</td>
+                    <td>{{ $order->created_at }}</td>
                     <td>{{ $order->products }}</td>
                     <td>{{ $order->amount }}</td>
                     <td>{{ $order->payment_reference }}</td>
                     <td>{{ $order->payment_status }}</td>
                     <td>{{ $order->dispatch_status }}</td>
-                    <td>
 
-
-                        @if($order->dispatch_status === 'Not Dispatched')
-            <form method="POST" action="{{ route('order.dispatch', $order->id) }}">
-                @csrf
-                @method('PUT')
-                <button type="submit" class="btn btn-sm btn-primary">Mark as Dispatched</button>
-            </form>
-        @else
-            <span class="text-success">Already Dispatched</span>
-        @endif
-                    </td>
                 </tr>
             @endforeach
         </tbody>

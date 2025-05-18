@@ -42,6 +42,9 @@ Route::get('/create', [App\Http\Controllers\CartController::class, 'create'])->n
 Route::post('/store', [App\Http\Controllers\CartController::class, 'store'])->name('store')->middleware('auth');
 Route::get('/cart', [App\Http\Controllers\CartController::class, 'show'])->name('show')->middleware('auth');
 Route::get('/cart/search', [App\Http\Controllers\CartController::class, 'search'])->name('search')->middleware('auth');
+Route::get('/order_history', [App\Http\Controllers\CartController::class, 'history'])->name('history')->middleware('auth');
+
+
 Route::get('/password/forget', [App\Http\Controllers\ForgetPassController::class, 'showResetForm'])->name('password.show');
 Route::post('/password/new', [App\Http\Controllers\ForgetPassController::class, 'resetPassword'])->name('password.new');
 Route::get('/password/create_new', [App\Http\Controllers\ForgetPassController::class, 'showNewPass'])->name('password.new.show');
@@ -49,6 +52,8 @@ Route::post('/password/createPass', [App\Http\Controllers\ForgetPassController::
 
 Route::get('/checkout', [App\Http\Controllers\CheckoutController::class, 'CheckoutForm'])->name('checkout');
 Route::get('/checkout', [App\Http\Controllers\CheckoutController::class, 'showcheckout'])->name('showcheckout');
+Route::get('/verify-payment', [App\Http\Controllers\CheckoutController::class, 'verifyPayment'])->name('verify.payment');
+
 
 
 Auth::routes();
@@ -64,5 +69,5 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::post('footwears', [FootwearsController::class, 'store'])->name('footwears.store');
     Route::put('footwears/{id}', [FootwearsController::class, 'update'])->name('footwears.update');
     Route::delete('footwears/{id}', [FootwearsController::class, 'destroy'])->name('footwears.destroy');
-    Route::delete('orders/{id}', [FootwearsController::class, 'completeOrder'])->name('order.complete');
+    Route::put('orders/{id}/dispatch', [FootwearsController::class, 'dispatchOrder'])->name('order.dispatch');
 });

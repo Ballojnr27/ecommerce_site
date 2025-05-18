@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Footwears;
 use App\Models\Cart;
+use App\Models\Order;
 use App\Models\User;
 use Illuminate\Support\Facades\Storage;
 
@@ -81,16 +82,19 @@ class FootwearsController extends Controller
 
     public function orders()
     {
-        $orders = Cart::all();
+        $orders = Order::all();
        // $customers = User::where('id', $orders->user_id)->get();
 
         return view('admin.footwears.orders', compact('orders'));
     }
 
-     public function completeOrder($id)
+     public function dispatchOrder($id)
     {
-        Cart::findOrFail($id)->delete();
-        return back();
+        $order = Order::findOrFail($id);
+    $order->update(['dispatch_status' => 'Dispatched']);
+
+    return redirect()->back()->with('success', 'Order marked as dispatched.');
     }
+
 
 }
