@@ -151,6 +151,7 @@
                 <th>Customer ID</th>
                 <th>Product</th>
                 <th>Amount</th>
+                <th>Location</th>
                 <th>Payment Reference</th>
                 <th>Payment Status</th>
                 <th>Dispatch Status</th>
@@ -164,6 +165,7 @@
                     <td>{{ $order->user_id }}</td>
                     <td>{{ $order->products }}</td>
                     <td>{{ $order->amount }}</td>
+                    <td>{{ $order->location }}</td>
                     <td>{{ $order->payment_reference }}</td>
                     <td>{{ $order->payment_status }}</td>
                     <td>{{ $order->dispatch_status }}</td>

@@ -21,6 +21,7 @@ return new class extends Migration
         $table->string('payment_reference')->nullable();
         $table->string('payment_status')->default('pending');
         $table->string('dispatch_status')->default('Not Dispatched');
+        $table->string('location');
         $table->timestamps();
     });
 }

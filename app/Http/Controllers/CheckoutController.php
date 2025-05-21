@@ -43,6 +43,7 @@ class CheckoutController extends Controller
     public function verifyPayment(Request $request)
 {
     $reference = $request->query('reference');
+    $location = $request->query('location');
 
     $response = Http::withToken(env('PAYSTACK_SECRET_KEY'))
         ->get("https://api.paystack.co/transaction/verify/{$reference}");
@@ -53,12 +54,15 @@ class CheckoutController extends Controller
         $user = Auth::user();
         $cartItems = Cart::where('user_id', $user->id)->get();
         $total = $cartItems->sum('price');
+        
 
         if ($cartItems->isEmpty()) {
             return redirect()->route('home')->with('error', 'Your cart is empty.');
         }
 
         $products = $cartItems->pluck('product')->toArray();
+
+        
 
         // Store the order
         Order::create([
@@ -67,6 +71,8 @@ class CheckoutController extends Controller
             'amount' => $total,
             'payment_reference' => $reference,
             'payment_status' => 'completed',
+            'location' => $location,
+            
         ]);
 
         // Clear cart

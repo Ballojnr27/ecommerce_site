@@ -133,7 +133,13 @@ h1 {
 
             <!-- Amount Field -->
             <label for="amount">Amount to Pay (NGN) :</label>
-<input type="number" id="amount" name="amount" value="{{ $sum }}" readonly><br><br>
+            <input type="number" id="amount" name="amount" value="{{ $sum }}" readonly><br><br>
+              
+            <!-- Location Field -->
+            <label for="location">Location: </label>
+           <input type="text" id="location" name="location" placeholder="Enter the location to be delivered to." required><br><br>
+
+             
 
             <!-- Submit Button -->
             <button type="submit" onclick="payWithPaystack()"> Pay </button><br><br>
@@ -160,11 +166,14 @@ function payWithPaystack(e) {
     onClose: function(){
       alert('Window closed.');
     },
-    callback: function(response) {
-    window.location = "/verify-payment?reference=" + response.reference;
-      //alert(message);
+    
+      callback: function(response) {
+     const location = document.getElementById("location").value;
+      window.location = `/verify-payment?reference=${response.reference}&location=${encodeURIComponent(location)}`;
+}
 
-    }
+
+    
   });
 
   handler.openIframe();

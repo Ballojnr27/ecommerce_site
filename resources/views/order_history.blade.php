@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin</title>
+    <title>Order History</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -88,7 +88,7 @@
         background-color: #35424b;
         color: white;
     }
-    
+
 
     </style>
 </head>
@@ -98,7 +98,7 @@
     <div class="logo"><span class="highlight">De'light </span>Footwears</div>
 
     <div class="sidebar" id="sidebar">
-        
+
 
     </div>
 </header>
@@ -114,7 +114,7 @@
                 <th>Payment Reference</th>
                 <th>Payment Status</th>
                 <th>Dispatch Status</th>
-                
+
             </tr>
         </thead>
         <tbody>

@@ -14,5 +14,6 @@ class Order extends Model
         'payment_reference',
         'payment_status',
         'dispatch_status',
+        'location',
     ];
 }
