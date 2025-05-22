@@ -34,6 +34,16 @@
           font-weight:bold;
 
         }
+         footer {
+            background-color: #35424b;
+            color:#e8491d;
+            font-weight:bold;
+            padding: 10px 20px;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
 
         h1{
 
@@ -142,8 +152,11 @@
       sidebar.classList.toggle('show');
     }
   </script>
-
+  <footer>
+<b>De'light Footwears &copy; 2024</b>
+</footer>
 
 </body>
+
 
 </html>

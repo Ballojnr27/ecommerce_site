@@ -96,10 +96,10 @@
             font-size: 19px;
 
         }
+ }
 
 
-        }
-
+ 
     </style>
 </head>
 <body>
@@ -166,5 +166,6 @@
 <footer>
 <b>De'light Footwears &copy; 2024</b>
 </footer>
+
 
 </html>
