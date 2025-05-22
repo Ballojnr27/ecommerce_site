@@ -176,9 +176,12 @@
 
       @foreach($carts as $cart)
 
+
+
             <div class="product">
             <h2> Product: {{$cart->product}} </h2>
-            <p>Price(NGN): {{$cart->price}} </p>
+            <p>Quantity: {{ $cart->quantity }}</p>
+            <p>Price(NGN)/1: {{$cart->price}} </p>
             <form action="{{ route('cart.destroy', $cart->id) }}" method="POST">
                 @csrf
                    @method('DELETE')

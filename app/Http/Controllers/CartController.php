@@ -43,6 +43,8 @@ class CartController extends Controller
        $cart->user_id = $user->id;
        $cart->product = request('product');
        $cart->price = request('price');
+       $cart->quantity = request('quantity');
+
 
 
        $cart->save();
@@ -58,8 +60,10 @@ class CartController extends Controller
 
       $carts = Cart::where('user_id', $user->id)->orderBy('created_at', 'desc')->get();
 
-      $sum  = Cart::where('user_id', $user->id)->sum('price');
-
+      //$sum  = Cart::where('user_id', $user->id)->sum('price');
+       $sum = $carts->sum(function ($item) {
+        return $item->price * $item->quantity;
+    });
 
 
       return view('cart', [

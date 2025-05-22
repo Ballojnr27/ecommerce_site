@@ -133,6 +133,8 @@
                <p>Description: {{ $footwear->description }}</p>
                <input type="hidden" name="product" placeholder="Product" value="{{$footwear->name}}">
                <input type="hidden" name="price" placeholder="Price" value="{{$footwear->price}}">
+               <label>Quantity:</label>
+               <input type="number" name="quantity" value="1" min="1" required><br><br>
                <button type="submit">Add To Cart</button>
             </div>
         </div>

@@ -32,8 +32,10 @@ class CheckoutController extends Controller
 
       $carts = Cart::where('user_id', $user->id)->orderBy('created_at', 'desc')->get();
 
-      $sum  = Cart::where('user_id', $user->id)->sum('price');
-
+      //$sum  = Cart::where('user_id', $user->id)->sum('price');
+      $sum = $carts->sum(function ($item) {
+        return $item->price * $item->quantity;
+    });
 
       return view('checkoutForm', [
         'user' => $user
@@ -53,16 +55,22 @@ class CheckoutController extends Controller
     if ($data['status'] && $data['data']['status'] === 'success') {
         $user = Auth::user();
         $cartItems = Cart::where('user_id', $user->id)->get();
-        $total = $cartItems->sum('price');
-        
+        //$total = $cartItems->sum('price');
+        $total = $cartItems->sum(function ($item) {
+        return $item->price * $item->quantity;
+    });
+
 
         if ($cartItems->isEmpty()) {
             return redirect()->route('home')->with('error', 'Your cart is empty.');
         }
 
-        $products = $cartItems->pluck('product')->toArray();
+        //$products = $cartItems->pluck('product')->toArray();
+        $products = $cartItems->map(function ($item) {
+    return $item->product . ' (x' . $item->quantity . ')';
+})->toArray();
 
-        
+
 
         // Store the order
         Order::create([
@@ -72,7 +80,7 @@ class CheckoutController extends Controller
             'payment_reference' => $reference,
             'payment_status' => 'completed',
             'location' => $location,
-            
+
         ]);
 
         // Clear cart
