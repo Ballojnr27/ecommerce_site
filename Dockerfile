@@ -21,6 +21,9 @@ WORKDIR /var/www/html
 # Copy all Laravel files to the container
 COPY . .
 
+RUN composer install --no-dev --optimize-autoloader
+
+
 # Set proper permissions
 RUN chown -R www-data:www-data \
     /var/www/html/storage \
