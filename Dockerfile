@@ -29,7 +29,7 @@ RUN chown -R www-data:www-data \
 # Expose the container's HTTP port
 EXPOSE 80
 
-RUN php artisan config:clear && php artisan migrate --force
+
 
 
 # Run Apache in the foreground
