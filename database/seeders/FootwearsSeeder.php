@@ -7,7 +7,7 @@ use App\Models\Footwears;
 
 class FootwearsSeeder extends Seeder
 {
-    public function runs(): void
+    public function run(): void
     {
      $footwears = [
             [
