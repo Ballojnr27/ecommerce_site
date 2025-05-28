@@ -6,16 +6,6 @@ use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Admin\FootwearsController;
 
 
-use Illuminate\Support\Facades\Artisan;
-
-Route::get('/run-seeder', function () {
-    if (request('key') !== 'base64:27GB4wqZFD21/qUsiiBOXR2RuBRmvlybwetMsLeiRHQ=') {
-        abort(403);
-    }
-
-    Artisan::call('db:seed', ['--force' => true]);
-    return '✅ Seeder ran successfully!';
-});
 
 
 /*
