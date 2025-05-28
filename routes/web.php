@@ -5,6 +5,26 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Admin\FootwearsController;
 
+use Illuminate\Support\Facades\Artisan;
+
+
+Route::get('/run-migrations', function () {
+    // ✅ Change this to your own secret key
+    $secret = 'base64:27GB4wqZFD21/qUsiiBOXR2RuBRmvlybwetMsLeiRHQ=';
+
+    // 🔐 Only run if the key matches
+    if (request('key') !== $secret) {
+        abort(403, 'Unauthorized.');
+    }
+
+    try {
+        Artisan::call('migrate', ['--force' => true]);
+        return '✅ Migrations ran successfully!';
+    } catch (\Exception $e) {
+        return '❌ Migration failed: ' . $e->getMessage();
+    }
+});
+
 
 
 
