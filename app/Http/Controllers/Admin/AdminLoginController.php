@@ -18,7 +18,7 @@ class AdminLoginController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            if (auth()->user()->email === 'admin@example.com') {
+            if (auth()->user()->role === 'admin') {
                 return redirect()->route('footwears.index');
             }
 
