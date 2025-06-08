@@ -1,244 +1,141 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cart</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            box-sizing: border-box;
-            height: 100%;
+@extends('layouts.app')
 
-        }
-        header {
-            background-color: #35424b;
-            color: #fff;
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo {
-            font-size: 24px;
-        }
-        .home, .logout-link, .history {
-            font-size: 18px;
-            color: #fff;
-            text-decoration: none;
-            margin-left: 20px;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 20px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            flex: 1;
+@section('title', 'Home')
 
-        }
-        .product {
-            border: 1px solid #ccc;
-            padding: 10px;
-            width: calc(45% - 20px);
-            margin-bottom: 20px;
-            text-align:center;
-        }
-        .product img {
-            max-width: 100%;
-            height: auto;
-        }
-        .product h2 {
-            margin-top: 0;
-            font-size: 18px;
-        }
-        .product p {
-            font-size: 14px;
-            margin-bottom: 10px;
-        }
-        button {
-            background-color: #333;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            font-size: 17px;
-        }
-        .highlight{
-          color:#e8491d;
-          font-weight:bold;
+@section('content')
+    <!-- Paste the HTML content here from index.html body -->
+    <div class="colorlib-loader"></div>
 
-        }
-        footer {
-            background-color: #35424b;
-            color:#e8491d;
-            font-weight:bold;
-            padding: 10px 20px;
-            bottom: 0;
-            width: 100%;
-            text-align: center;
-            font-family: Arial, sans-serif;
-            padding: 20px 0;
-    position: relative;
+    <div id="page">
+        <nav class="colorlib-nav" role="navigation">
+            <div class="top-menu">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-7 col-md-9">
+                            <div id="colorlib-logo"><a href="/">Delight Footwears</a></div>
 
-        }
-        h1{
-          margin-left:70px;
-        }
-        .checkout{
-            background-color: #333;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            font-size: 17px;
-            width: 300px;
-            height: 100px;
-        }
-        .search{
-            margin-left: 1050px;
-            align-items: center;
+                        </div>
 
-        }
-        .search_box{
-            size: 100px;
-        }
-        @media (max-width: 768px) {
-            .cart-logo, .home, .logout-link {
-            font-size: 11px;
-            color: #fff;
-            text-decoration: none;
-            margin-left: 11px;
-        }
-        .logo {
-            font-size: 19px;
-        }
-        .welcome{
-            font-size: 25px;
-            margin-left: 25px;
-        }
-        .product{
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 text-left menu-1">
+                            <ul>
 
-            margin-left: 75px;
-        }
-        .search{
-            margin-left: 83px;
-            align-items: center;
-
-        }
-        .search_box{
-            size: 100px;
-        }
-    }
-
-    </style>
-</head>
-<body>
-
-<header>
-    <div class="logo"><span class="highlight">De'light </span>Footwears</div>
-
-    <div>
-        <a href="/home" class="home">Home</a>
-        <a href="/order_history" class="history">Order History</a>
-        <a class="logout-link" href="{{ route('logout') }}"
-          onclick="event.preventDefault();
+                                <li class="side-right"> <a href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">
-          {{ __('Logout') }}
-         </a>
+                                        {{ __('Logout') }}
+                                    </a>
 
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-            @csrf
-        </form>
-    </div>
-</header>
-<h1 class="welcome">Shopping Cart</h1>
-<form action="{{ route('search') }}" method="GET" class="search">
-    <input type="text" name="search" placeholder="Enter name of product" class="search_box">
-    <button type="submit">Search</button>
-</form>
-<center>
-
-
-
-    @if($carts->isEmpty())
-
-<p style="font-size: 30px"><b>You Cart Is Empty.</p></b>
-
-@else
-
-<div class="container">
-
-      @foreach($carts as $cart)
-
-
-
-            <div class="product">
-            <h2> Product: {{$cart->product}} </h2>
-            <p>Quantity: {{ $cart->quantity }}</p>
-            <p>Price(NGN)/1: {{$cart->price}} </p>
-            <form action="{{ route('cart.destroy', $cart->id) }}" method="POST">
-                @csrf
-                   @method('DELETE')
-                 <button onclick="return confirmDelete();">Delete Order</button>
-                 <input type="hidden" name="confirmed" id="confirmed" value="false">
-              </form>
-              <script>
-                  function confirmDelete(){
-                      var confirmed = confirm("Are you sure you want to delete this order?");
-                      if (confirmed){
-                          document.getElementById('confirmed').value = 'true';
-                      }
-                      return confirmed;
-                  }
-              </script>
-
-              @if (session('confirm_message'))
-                 <script>
-                     alert("{{ session('confirm_message') }}")
-                 </script>
-              @endif
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </li>
+                                <li class="side-right"><a href="/order_history">Order History</a></li>
+                                <li class="side-right"> <a href="/home">Home</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
-    @endforeach
-</div>
+
+        </nav><br>
 
 
-  <form action="{{ route('cart.checkout') }}" method="POST">
-    @csrf
-       @method('DELETE')
-     <button onclick="return confirmedDelete();" class="checkout">Checkout</button>
-     <input type="hidden" name="confirmed" id="confirmed" value="false">
-  </form>
-  <script>
-      function confirmedDelete(){
-          var confirmed = confirm("Total order is {{ $sum }} NGN. Checkout?");
-          if (confirmed){
-              document.getElementById('confirmed').value = 'true';
+        <aside id="colorlib-hero">
+            <div class="flexslider">
+                <center>
+                    <h1 class="welcome">Shopping Cart</h1>
+                </center>
 
-          }
-        return confirmed;
-      }
-  </script>
+                @if ($carts->isEmpty())
 
-  @if (session('confirm_message'))
-     <script>
-         alert("{{ session('confirm_message') }}")
-     </script>
-  @endif
-@endif
+                    <p style="font-size: 30px"><b>Your Cart Is Empty.</p></b>
+                @else
+                    <form action="{{ route('search') }}" method="GET" class="searchpro">
+                        <input type="text" name="search" placeholder="Enter name of product" class="searchpro_box"
+                            required>
+                        <button type="submit">Search</button>
+                    </form>
+                    <div class="container2">
+                        @foreach ($carts as $cart)
+                            <div class="product">
+                                <h2> Product: {{ $cart->product }} </h2>
+                                <p>Quantity: {{ $cart->quantity }}</p>
+                                <p>Price(NGN)/1: {{ $cart->price }} </p>
+                                <form action="{{ route('cart.destroy', $cart->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button onclick="return confirmDelete();">Delete Order</button>
+                                    <input type="hidden" name="confirmed" id="confirmed" value="false">
+                                </form>
+                                <script>
+                                    function confirmDelete() {
+                                        var confirmed = confirm("Are you sure you want to delete this order?");
+                                        if (confirmed) {
+                                            document.getElementById('confirmed').value = 'true';
+                                        }
+                                        return confirmed;
+                                    }
+                                </script>
+
+                                @if (session('confirm_message'))
+                                    <script>
+                                        alert("{{ session('confirm_message') }}")
+                                    </script>
+                                @endif
+                            </div>
+                        @endforeach
+                    </div>
 
 
 
-</center>
+                    <center>
+                        <form action="{{ route('cart.checkout') }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button onclick="return confirmedDelete();" class="checkout">Checkout</button>
+                            <input type="hidden" name="confirmed" id="confirmed" value="false">
+                        </form>
+                        <script>
+                            function confirmedDelete() {
+                                var confirmed = confirm("Total order is {{ $sum }} NGN. Checkout?");
+                                if (confirmed) {
+                                    document.getElementById('confirmed').value = 'true';
 
-</body><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<footer>
-<b>De'light Footwears &copy; 2024</b>
-</footer>
+                                }
+                                return confirmed;
+                            }
+                        </script>
 
-</html>
+                        @if (session('confirm_message'))
+                            <script>
+                                alert("{{ session('confirm_message') }}")
+                            </script>
+                        @endif
+                    </center>
+                @endif
+
+
+            </div><br><br><br>
+        </aside> <br><br><br>
+
+        <footer id="colorlib-footer" role="contentinfo">
+
+            <div class="copy">
+                <div class="row">
+                    <div class="col-sm-12 text-center">
+                        <p>
+                            <span><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                Copyright &copy;
+                                <script>
+                                    document.write(new Date().getFullYear());
+                                </script> Delight Footwear
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+@endsection
