@@ -65,6 +65,7 @@ Route::post('/admin/login', [AdminLoginController::class, 'login'])->name('admin
 
 Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::get('footwears', [FootwearsController::class, 'index'])->name('footwears.index');
+    Route::get('users', [FootwearsController::class, 'users'])->name('admin.users');
     Route::get('orders', [FootwearsController::class, 'orders'])->name('footwears.orders');
     Route::post('footwears', [FootwearsController::class, 'store'])->name('footwears.store');
     Route::put('footwears/{id}', [FootwearsController::class, 'update'])->name('footwears.update');

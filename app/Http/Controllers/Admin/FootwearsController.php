@@ -33,17 +33,17 @@ class FootwearsController extends Controller
 
         if (isset($request['image'])) {
 
-           if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $filename = $image->getClientOriginalName(); // yam.jpg
-            $destinationPath = public_path('footwears');
+            if ($request->hasFile('image')) {
+                $image = $request->file('image');
+                $filename = $image->getClientOriginalName(); // yam.jpg
+                $destinationPath = public_path('footwears');
 
-            // Move image to public folder
-            $image->move($destinationPath, $filename);
+                // Move image to public folder
+                $image->move($destinationPath, $filename);
 
-            // Save correct public path in DB
-            $profileImage = $filename;
-        }
+                // Save correct public path in DB
+                $profileImage = $filename;
+            }
         }
 
         $data['image'] = $profileImage;
@@ -83,18 +83,23 @@ class FootwearsController extends Controller
     public function orders()
     {
         $orders = Order::all();
-       // $customers = User::where('id', $orders->user_id)->get();
+        // $customers = User::where('id', $orders->user_id)->get();
 
         return view('admin.footwears.orders', compact('orders'));
     }
 
-     public function dispatchOrder($id)
+    public function users()
     {
-        $order = Order::findOrFail($id);
-    $order->update(['dispatch_status' => 'Dispatched']);
+        $users = User::where('role', 'user')->get();
 
-    return redirect()->back()->with('success', 'Order marked as dispatched.');
+        return view('admin.users', compact('users'));
     }
 
+    public function dispatchOrder($id)
+    {
+        $order = Order::findOrFail($id);
+        $order->update(['dispatch_status' => 'Dispatched']);
 
+        return redirect()->back()->with('success', 'Order marked as dispatched.');
+    }
 }

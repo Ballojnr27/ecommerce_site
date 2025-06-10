@@ -50,7 +50,7 @@
 
                 @if ($carts->isEmpty())
 
-                    <p style="font-size: 30px"><b>Your Cart Is Empty.</p></b>
+                   <center> <p style="font-size: 25px" ><b>Your Cart Is Empty.</p></b></center>
                 @else
                     <form action="{{ route('search') }}" method="GET" class="searchpro">
                         <input type="text" name="search" placeholder="Enter name of product" class="searchpro_box"

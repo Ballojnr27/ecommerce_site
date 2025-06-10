@@ -4,7 +4,7 @@ body{
     background-repeat: no-repeat;
     background-position: center;
     }
-    
+
     .signup{
     background: rgba(44, 62, 80, 0.7);
     padding:40px;
@@ -13,13 +13,13 @@ body{
     margin-left:180px;
     margin:0 auto;
     }
-    
+
     form{
     width:240px;
     text-align:center;
     margin-top:-10;
     }
-    
+
     input{
     width:240px;
     text-align: center;
@@ -34,7 +34,7 @@ body{
     height:35px;
     color: black;
     }
-    
+
     button{
     width:190px;
     font-size:20px;
@@ -47,36 +47,36 @@ body{
     font-weight: bold;
     /*margin-top="100px"*/
     }
-    
+
     button:hover {
     background: black;
     color:blue;
     }
-    
+
     h2, h1{
     color:blue;
     font-weight: bolder;
     font-size: 30px;
     }
-    
+
     a{
     color:blue;
     }
-    
+
     a:hover{
     color:black;
     }
-    
+
     .signin{
     color:crimson;
     }
-    
+
     ::placeholder{
     color: black;
     opacity:0.5;
     font-size: small;
     }
-    
+
     #error{
         color:red;
         opacity: 0.9;
@@ -87,3 +87,29 @@ body{
     font-size:18px;
     font-weight:200px;
     }
+
+@media screen and (max-width: 400px) {
+    .signup {
+        width: 75%;
+        padding: 15px;
+        margin: 30px auto;
+    }
+
+    input {
+        font-size: 14px;
+        padding: 6px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    h1, h2 {
+        font-size: 18px;
+    }
+
+    label {
+        font-size: 14px;
+    }
+}
