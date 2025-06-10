@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Home')
+@section('title', 'DelightFootwears - Home')
 
 @section('content')
     <!-- Paste the HTML content here from index.html body -->

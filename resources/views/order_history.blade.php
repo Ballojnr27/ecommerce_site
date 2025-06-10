@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Home')
+@section('title', 'DelightFootwears - Order History')
 
 @section('content')
     <style>
@@ -114,7 +114,7 @@ th {
 
                 @if ($orders->isEmpty())
 
-                    <p style="font-size: 30px"><b>You have not placed any order yet.</p></b>
+                    <center><p style="font-size: 21px"><b>Your Order History is empty.</p></b></center>
                 @else
                     <div class="container2">
 
