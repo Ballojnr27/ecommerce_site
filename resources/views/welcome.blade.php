@@ -102,7 +102,7 @@
                                 Copyright &copy;
                                 <script>
                                     document.write(new Date().getFullYear());
-                                </script> Delight Footwear
+                                </script> Delight Footwears
                         </p>
                     </div>
                 </div>
