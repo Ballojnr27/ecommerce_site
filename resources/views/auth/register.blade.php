@@ -4,101 +4,61 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/reg_log.css">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="{{ asset('css/reg_log.css') }}">
 </head>
 <body>
     <div class="signup">
-                <h2>Sign Up!</h2>
-                <form method="POST" action="{{ route('register') }}">
-                        @csrf
+        <h2>Sign Up!</h2>
 
-                        <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
+        <form method="POST" action="{{ route('register') }}">
+            @csrf
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+            <label for="name">Name</label>
+            <input id="name" type="text" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+            @error('name')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
 
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
+            <label for="email">Email Address</label>
+            <input id="email" type="email" name="email" value="{{ old('email') }}" required autocomplete="email">
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+            @error('email')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
 
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+            <label for="password">Password</label>
+            <input id="password" type="password" name="password" required autocomplete="new-password">
 
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
+            @error('password')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+            <label for="password-confirm">Confirm Password</label>
+            <input id="password-confirm" type="password" name="password_confirmation" required autocomplete="new-password">
 
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+            <label for="security_ques">Security Question</label>
+            <input id="security_ques" type="text" name="security_ques" value="{{ old('security_ques') }}" placeholder="What is your favorite sport?" required autocomplete="security_ques">
 
-                        <div class="row mb-3">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
+            @error('security_ques')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
 
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
+            <button type="submit">
+                {{ __('Register') }}
+            </button>
 
-                        <div class="row mb-3">
-                            <label for="security_ques" class="col-md-4 col-form-label text-md-end">{{ __('Security Question') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="security_ques" type="text" class="form-control @error('name') is-invalid @enderror" name="security_ques" value="{{ old('security_ques') }}" placeholder="What is your favorite sport?" required autocomplete="security_ques" autofocus>
-
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-                        <br><br>
-
-                        <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                        <br>
-                        Already have an account? <a href="/login">Log in</a>
-                    </form>
-
-                </div>
-            </div>
-        </div>
+            <p>Already have an account? <a href="/login">Log in</a></p>
+        </form>
     </div>
-</div>
-</div>
 </body>
 </html>
-
-
-
-
-
